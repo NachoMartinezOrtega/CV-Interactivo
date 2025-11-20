@@ -1,49 +1,203 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Landing Page</title>
-  <link rel="stylesheet" href="css/style.css" />
-  <link rel="shortcut icon" href="imgs/favicon.png" type="image/x-icon" />
-  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currículum Interactivo</title>
+    <meta name="description" content="Currículum Vitae Interactivo y Profesional">
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
+
 <body>
+    <canvas id="background-canvas"></canvas>
 
-  <header>
-    <a href="index.html" class="logo">Ignacio Martinez Ortega</a>
-    <button class="menu-toggle" onclick="document.querySelector('.navbar').classList.toggle('active')">
-      <ion-icon name="menu-outline"></ion-icon>
-    </button>
-    <ul class="navbar">
-      <li><a href="quien_soy.html">Quién soy</a></li>
-      <li><a href="curriculum.html">Curriculum</a></li>
-      <li><a href="proyectos.html">Proyectos</a></li>
-      <li><a href="formulario.html">Contacto</a></li>
-    </ul>
-  </header>
-
-  <main class="contenido">
-    <div class="tituloBox">
-      <h2>ESTUDIANTE</h2>
-      <h2><span>FPGS DAM</span></h2>
-      <p>Desarrollador junior</p>
-      <p>Estudiante</p>
-      <p>- UNIR (DAM)</p>
-      <p>- EADIC (IA para la Productividad Empresarial)</p>
-      <a href="mas_sobre_mi.html">MÁS SOBRE MÍ</a>
+    <div class="theme-toggle-container">
+        <button id="theme-toggle" aria-label="Cambiar modo oscuro/claro">
+            <i class="fas fa-moon"></i>
+        </button>
     </div>
-    <div class="imgBox">
-      <img src="imgs/imagenfondo.png" alt="Imagen Ignacio" />
-    </div>
-  </main>
 
-  <ul class="redesSociales">
-    <li><a href="mailto:nacho.martinez.ortega@hotmail.com"><ion-icon name="mail-outline"></ion-icon></a></li>
-    <li><a href="https://www.linkedin.com/in/ignacio-martinez-413973304/" target="_blank"><ion-icon name="logo-linkedin"></ion-icon></a></li>
-    <li><a href="https://github.com/NachoMartinezOrtega" target="_blank"><ion-icon name="logo-github"></ion-icon></a></li>
-  </ul>
+    <main class="resume-container">
+        <!-- Header Section -->
+        <header class="resume-header">
+            <div class="profile-photo-container">
+                <!-- Coloca tu foto en la carpeta 'images' con el nombre 'foto-perfil.jpg' -->
+                <img src="images/foto-perfil.png" alt="Foto de Perfil" class="profile-photo"
+                    onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                <!-- Fallback por si no encuentra la imagen -->
+                <div class="profile-photo-placeholder" style="display: none;">
+                    <i class="fas fa-user"></i>
+                </div>
+            </div>
+            <div class="header-content">
+                <h1 id="name">Ignacio Martinez Ortega</h1>
+                <h2 id="title">DESARROLLADOR JUNIOR DE APLICACIONES</h2>
+                <div class="contact-info">
+                    <a href="mailto:nacho.martinez.ortega77@gmail.com"><i class="fas fa-envelope"></i>
+                        nacho.martinez.ortega77@gmail.com</a>
+                    <a href="tel:676761635"><i class="fas fa-phone"></i> 676761635</a>
+                    <a href="https://www.linkedin.com/in/ignacio-mart%C3%ADnez-413973304/" target="_blank"><i
+                            class="fab fa-linkedin"></i> LinkedIn</a>
+                    <a href="https://github.com/NachoMartinezOrtega" target="_blank"><i class="fab fa-github"></i>
+                        GitHub</a>
+                    <span class="location"><i class="fas fa-map-marker-alt"></i> Aranjuez, Madrid</span>
+                </div>
+            </div>
+        </header>
 
+        <!-- About Section -->
+        <section class="section about-section">
+            <h3><i class="fas fa-user-circle"></i> Sobre Mí</h3>
+            <p>
+                Estudiante del ciclo superior DAM, actualmente adquiriendo y aplicando los conceptos clave de
+                programación y bases de datos. Cuento con conocimientos en desarrollo web (HTML, CSS, JavaScript,
+                Bootstrap), y estoy cursando una especialización formal en Inteligencia Artificial (IA), Aprendizaje
+                Automático (Machine Learning) y Análisis de Datos. Mi principal interés es aplicar estos conocimientos
+                para analizar información, extraer conocimiento de los datos y crear soluciones inteligentes. Busco una
+                posición junior orientada al Análisis de Datos o a proyectos de Inteligencia Artificial.
+            </p>
+        </section>
+
+        <!-- Experience Section -->
+        <section class="section experience-section">
+            <h3><i class="fas fa-briefcase"></i> Experiencia Laboral</h3>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">2024 - 2025</div>
+                    <div class="timeline-content">
+                        <h4>Operario de fábrica</h4>
+                        <span class="company">Aisupa</span>
+                        <p>Trabajo de precisión en el sector metalúrgico. Experiencia en el seguimiento de protocolos
+                            rigurosos,
+                            atención al detalle y gestión eficiente de tiempos de producción.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section class="section projects-section">
+            <h3><i class="fas fa-laptop-code"></i> Proyectos</h3>
+            <div class="education-grid"> <!-- Reusing grid layout for consistency -->
+                <div class="education-card">
+                    <h4>Dashboard Interactivo de Hábitos de Usuario</h4>
+                    <span class="institution">Diseño de un proceso de análisis de datos para una aplicación
+                        planificadora, incluyendo la limpieza de datos con Python, consulta SQL y la creación de un
+                        dashboard dinámico y funcional con Power BI para identificar tendencias de uso.</span>
+                    <div class="tags" style="margin-top: 0.5rem;">
+                        <span class="tag">Power BI</span>
+                        <span class="tag">Python</span>
+                        <span class="tag">SQL</span>
+                        <span class="tag">Dbeaver</span>
+                    </div>
+                </div>
+                <div class="education-card">
+                    <h4>Infraestructura y Clasificación para Vestidor Inteligente</h4>
+                    <span class="institution">Desarrollo de un clasificador de prendas basado en IA (Machine Learning)
+                        para el vestidor. La infraestructura se implementa mediante Docker para contenerizar la base de
+                        datos de inventario y simular un entorno de despliegue real.</span>
+                    <div class="tags" style="margin-top: 0.5rem;">
+                        <span class="tag">Docker</span>
+                        <span class="tag">Python</span>
+                        <span class="tag">Bases de Datos</span>
+                        <span class="tag">Git</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section class="section education-section">
+            <h3><i class="fas fa-graduation-cap"></i> Educación</h3>
+            <div class="education-grid">
+                <div class="education-card">
+                    <h4>DAM </h4>
+                    <span class="institution">Universidad Internacional de la Rioja (UNIR)</span>
+                    <span class="year">En curso</span>
+                </div>
+                <div class="education-card">
+                    <h4>AWS Academy Graduate</h4>
+                    <span class="institution">Cloud Foundations</span>
+                    <span class="year">2025</span>
+                </div>
+                <div class="education-card">
+                    <h4>FPFU: Programa de Formación Universitaria Módulos Clave:
+                        • Sistemas Inteligentes
+                        • IA + Ingeniería del Conocimiento
+                        • Aprendizaje Automático y Minería de Datos</h4>
+                    <span class="institution">Universidad Internacional de la Rioja (UNIR)</span>
+                    <span class="year">en curso</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section class="section skills-section">
+            <h3><i class="fas fa-code"></i> Habilidades</h3>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h4>Técnicas</h4>
+                    <div class="tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">SQL (MySQL/PostgreSQL)</span>
+                        <span class="tag">PowerBI</span>
+                        <span class="tag">Bases de Datos (SQL-DBeaver)</span>
+                        <span class="tag">Docker</span>
+                        <span class="tag">HTML5 · CSS3 · JavaScript</span>
+                        <span class="tag">Git</span>
+                    </div>
+
+                </div>
+                <div class="skill-category">
+                    <h4>Blandas</h4>
+                    <div class="tags">
+                        <span class="tag">Liderazgo</span>
+                        <span class="tag">Comunicación</span>
+                        <span class="tag">Trabajo en Equipo</span>
+                        <span class="tag">Resolución de Problemas</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Languages & Interests -->
+        <section class="section extra-section">
+            <div class="half-column">
+                <h3><i class="fas fa-language"></i> Idiomas</h3>
+                <ul class="list-simple">
+                    <li><strong>Español:</strong> Nativo</li>
+                    <li><strong>Inglés:</strong> Intermedio (B2)</li>
+                </ul>
+            </div>
+            <div class="half-column">
+                <h3><i class="fas fa-heart"></i> Intereses</h3>
+                <div class="tags">
+                    <span class="tag">Inteligencia Artificial (IA)</span>
+                    <span class="tag">Machine Learning (ML)</span>
+                    <span class="tag">Data Analysis</span>
+                    <span class="tag">Data Engineering</span>
+                    <span class="tag">Data Science</span>
+                    <span class="tag">Tecnología Cloud (AWS)</span>
+                    <span class="tag">Desarrollo Web Full Stack</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="resume-footer">
+        <p>&copy; 2025 Ignacio Martinez Ortega. Diseñado con HTML, CSS y JS.</p>
+        <button id="print-btn" class="btn-secondary"><i class="fas fa-print"></i> Guardar como PDF</button>
+    </footer>
+
+    <script src="scripts/app.js"></script>
 </body>
+
 </html>
